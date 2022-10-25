@@ -64,8 +64,7 @@ echo "<?xml version=\"1.0\"?>
 
 cd /opt/hivemq/extensions
 sudo wget --content-disposition $EXTENSION_DOWNLOAD_LINK
-sudo cd /opt/hivemq/extensions
-sudo unzip "ChatExtension-1.0-SNAPSHOT-distribution.zip"
+ls -la
 
 
 sudo systemctl enable hivemq
