@@ -2,7 +2,6 @@ HIVEMQ_VERSION=$1
 STORAGE_ACCESS_KEY=$2
 STORAGE_CONTAINER_NAME=$3
 
-EXTENSION_PROPERTIES_PATH="/opt/hivemq/extensions/hivemq-azure-cluster-discovery-extension/azDiscovery.properties"
 HIVEMQ_DOWNLOAD_LINK="https://www.hivemq.com/releases/hivemq-${HIVEMQ_VERSION}.zip"
 
 EXTENSION_DOWNLOAD_LINK="https://github.com/WahidNasri/hivemq-chat-extension/blob/main/ChatExtension-1.0-SNAPSHOT-distribution.zip"
@@ -66,15 +65,6 @@ echo "<?xml version=\"1.0\"?>
 cd /opt/hivemq/extensions
 sudo wget --content-disposition $EXTENSION_DOWNLOAD_LINK -O azure-extension.zip
 sudo unzip azure-extension.zip 
-echo "connection-string=${STORAGE_ACCESS_KEY}
-container-name=hivemq-discovery
-# An optional file-prefix for the Blob to create, which holds the cluster node information for the discovery. (default: hivemq-node)
-# Do not omit this value if you reuse the specified container for other files.
-file-prefix=hivemq-node-
-# Timeout in seconds after which the created Blob will be deleted by other nodes, if it was not updated in time. (default: 360)
-file-expiration=360
-# Interval in seconds in which the Blob will be updated. Must be less than file-expiration. (default: 180)
-update-interval=180" | sudo tee $EXTENSION_PROPERTIES_PATH
 
 
 sudo systemctl enable hivemq
