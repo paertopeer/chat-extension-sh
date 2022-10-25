@@ -64,8 +64,7 @@ echo "<?xml version=\"1.0\"?>
 
 cd /opt/hivemq/extensions
 sudo wget --content-disposition $EXTENSION_DOWNLOAD_LINK -O azure-extension.zip
-sudo unzip azure-extension.zip 
-
+jar xvf azure-extension.zip
 
 sudo systemctl enable hivemq
 sudo systemctl start hivemq
