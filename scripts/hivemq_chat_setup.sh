@@ -65,8 +65,9 @@ echo "<?xml version=\"1.0\"?>
 cd /opt/hivemq/extensions
 sudo wget --content-disposition $EXTENSION_DOWNLOAD_LINK -O ChatExtension
 
-cd ChatExtension
+cd /opt/hivemq/extensions/ChatExtension
 ls
+
 
 sudo systemctl enable hivemq
 sudo systemctl start hivemq
